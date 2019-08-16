@@ -30,14 +30,20 @@ with open (csvpath , newline = '') as csvfile:
         if inc_profit[i] == min_loss:
             min = i + 1
 
-    print("```text")
-    print("Financial Analysis")
-    print("----------------------------")
-    print("Total Months: "+ str(len(months)))
-    print("Total: $" + str(total))
-    print("Average Change $" + str(avg_change))
-    print("The greatest increase in Profits: "+ months[max] + " ($" + str(max_profit) + ")")
-    print("The greatest decrease in Profits: "+ months[min] + " ($" + str(min_loss) + ")")
-    print("```")
+    with open ("output.txt","w" ) as output:
+        text1= "```text"+ "\n" +"Financial Analysis" +"\n" +"----------------------------"+ "\n"
+        print(text1)
+        output.write(text1)
+        print("Total Months: "+ str(len(months)))
+        output.write("Total Months: "+ str(len(months)) + "\n")
+        print("Total: $" + str(total))
+        output.write("Total: $" + str(total)+"\n")
+        print("Average Change $" + str(avg_change))
+        output.write("Average Change $" + str(avg_change)+"\n")
+        print("The greatest increase in Profits: "+ months[max] + " ($" + str(max_profit) + ")")
+        output.write("The greatest increase in Profits: "+ months[max] + " ($" + str(max_profit) + ")" +"\n")
+        print("The greatest decrease in Profits: "+ months[min] + " ($" + str(min_loss) + ")")
+        print("```")
+        output.write("The greatest decrease in Profits: "+ months[min] + " ($" + str(min_loss) + ")" +"\n" +"```")
     
         
